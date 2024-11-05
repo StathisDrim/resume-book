@@ -1,0 +1,48 @@
+/* Βασικά στυλ βιβλίου */
+#book {
+    width: 80%;
+    height: 80vh;
+    margin: auto;
+    perspective: 1500px;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.cover {
+    background-color: #8b5a2b;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.chapter, .summary {
+    padding: 20px;
+    color: #333;
+}
+
+.chapter h2, .summary h2 {
+    font-size: 1.8em;
+}
+
+/* Στυλ αριθμού σελίδας */
+.page::after {
+    content: attr(data-page-number);
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-size: 0.8em;
+    color: #888;
+}
