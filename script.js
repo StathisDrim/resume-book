@@ -1,4 +1,5 @@
 $(function() {
+    console.log("Το script.js φορτώθηκε σωστά!");
     var book = $('#book');
     
     // View Cover
