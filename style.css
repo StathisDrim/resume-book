@@ -236,7 +236,7 @@
 		background:#29303A;
 		box-shadow:1px 0 0 #29303A,-1px 0 0 #29303A; /* 旋转的时候 拼接处隐隐约约会有个缝隙 所以加上个阴影来填补它 */
 		position:absolute;
-		top:0; bottom:0; left:-55px;
+		top:0; bottom:0; left:-30px;
 		-webkit-transform:rotate3d(0,1,0,-90deg);
 		-moz-transform:rotate3d(0,1,0,-90deg);
 		-ms-transform:rotate3d(0,1,0,-90deg);
