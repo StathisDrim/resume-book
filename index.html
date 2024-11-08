@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-</head>
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Βιογραφικό</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Φορτώνουμε πρώτα το jQuery από το CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<div id="opt">
-	<dl>
-		<dt>Console</dt>
-		<dd id="view-cover" class="cur">View Cover</dd>
-		<dd id="view-back">View Back</dd>
-		<dd id="open-book">Open/Close book</dd>
-		<dd id="view-rotate">360° Showcase</dd>
-	</dl>
-</div>
+    <!-- Το περιεχόμενο της σελίδας (το βιβλίο σου και η κονσόλα) -->
+    <div id="opt">
+        <dl>
+            <dt>Console</dt>
+            <dd id="view-cover" class="cur">View Cover</dd>
+            <dd id="view-back">View Back</dd>
+            <dd id="open-book">Open/Close book</dd>
+            <dd id="view-rotate">360° Showcase</dd>
+        </dl>
+    </div>
 <h1 class="demo-title">Welcome to My Professional Portfolio</h1>
 
 <div id="book" class="view-cover">
@@ -59,6 +59,7 @@
 		<div class="book-bottom"></div>
 	</div>
 </div>
-
+    <!-- Φορτώνουμε το script.js -->
+    <script src="script.js"></script>
 </body>
 </html>
