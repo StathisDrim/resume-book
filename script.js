@@ -1,45 +1,55 @@
-$(document).ready(function() {
+$(function() {
     console.log("Το script.js φορτώθηκε σωστά!");
-
     var book = $('#book');
+    var pages = $('.page'); // Βρίσκουμε όλες τις σελίδες
 
-    // Συνάρτηση για αλλαγή κατάστασης του βιβλίου
-    function setBookClass(className) {
-        book.removeClass().addClass(className);
-        console.log("Η κλάση του βιβλίου άλλαξε σε:", className);  // Έλεγχος αλλαγής κλάσης
-    }
+    var currentPage = 0; // Αρχική σελίδα
 
-    // Χειρισμός κλικ για τα κουμπιά της κονσόλας
-    $('#view-cover').click(function() {
-        setBookClass('view-cover');
-    });
+    // Εμφάνιση πρώτης σελίδας
+    $(pages[currentPage]).addClass('active');
 
-    $('#view-back').click(function() {
-        setBookClass('view-back');
-    });
-
-    $('#open-book').click(function() {
-        if (book.hasClass('open-book')) {
-            setBookClass('view-cover');  // Κλείσιμο στο εξώφυλλο
-        } else {
-            setBookClass('open-book');  // Άνοιγμα βιβλίου
+    // Επόμενη σελίδα
+    $('#next-page').click(function() {
+        if (currentPage < pages.length - 1) {
+            $(pages[currentPage]).removeClass('active');
+            currentPage++;
+            $(pages[currentPage]).addClass('active');
         }
     });
 
-    $('#view-rotate').click(function() {
-        setBookClass('view-rotate');
+    // Προηγούμενη σελίδα
+    $('#prev-page').click(function() {
+        if (currentPage > 0) {
+            $(pages[currentPage]).removeClass('active');
+            currentPage--;
+            $(pages[currentPage]).addClass('active');
+        }
     });
 
-    // Χειρισμός κλικ για το ίδιο το βιβλίο
-    book.click(function() {
-        if (book.hasClass('view-cover')) {
-            setBookClass('view-back');
-        } else if (book.hasClass('view-back')) {
-            setBookClass('open-book');
-        } else if (book.hasClass('open-book')) {
-            setBookClass('view-rotate');
+    // Άλλες ενέργειες για την κονσόλα (View Cover, Rotate, Open/Close, κλπ.)
+    $('#view-cover').click(function(){
+        $(this).addClass('cur').siblings().removeClass('cur');
+        book.removeClass().addClass('view-cover');
+    });
+
+    $('#view-back').click(function(){
+        $(this).addClass('cur').siblings().removeClass('cur');
+        book.removeClass().addClass('view-back');
+    });
+
+    $('#open-book').click(function(){
+        if (book.attr('class') != 'open-book') {
+            $(this).addClass('cur').siblings().removeClass('cur');
+            book.removeClass().addClass('open-book');
         } else {
-            setBookClass('view-cover');
+            $(this).removeClass('cur');
+            $('#view-cover').addClass('cur');
+            book.removeClass().addClass('view-cover');
         }
+    });
+
+    $('#view-rotate').click(function(){
+        $(this).addClass('cur').siblings().removeClass('cur');
+        book.removeClass().addClass('view-rotate');
     });
 });
