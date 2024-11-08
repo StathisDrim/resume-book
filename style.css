@@ -183,6 +183,9 @@
 		margin:30px 40px;
 		overflow:hidden;
 	}
+        .page.active {
+                display: block; /* Η σελίδα που είναι ενεργή θα είναι ορατή */
+       }
 	.book-page h3{
 		font-size:14px;
 		text-align:center;
